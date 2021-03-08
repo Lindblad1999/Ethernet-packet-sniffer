@@ -7,7 +7,7 @@ import struct
 while True:
     ETH_P_ALL=3
     s=socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(ETH_P_ALL))
-    s.bind(("eth0", 0))
+    s.bind(("192.168.1.201", 8000))
     r=s.recvfrom(2000)
     sys.stdout.write("<%s>\n"%repr(r))
 
