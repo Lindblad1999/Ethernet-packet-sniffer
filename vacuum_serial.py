@@ -16,10 +16,3 @@ if __name__ == '__main__':
         data = ser.readline()
         print(data)
         gauge.set(data)
-
-# while True:
-#     line = ser.readline()
-#     if len(line) == 0:
-#         print("Timeout!")
-#         sys.exit()
-#     print(line)
