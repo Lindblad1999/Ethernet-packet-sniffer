@@ -1,16 +1,20 @@
 #!/usr/bin/python
 
-import os, sys
 import serial
 from prometheus_client import Gauge, start_http_server
-import time
 
 # Serial object
 ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=5)
 
 # Format the data, to fit prometheus
 def format_data(data):
-    pass
+    d = data.split(',')[1].split('E')
+    first = float(d[0])
+    second = float(d[1])
+    result = (first * 10) ** second
+    print(result)
+    return result
+
 
 # Read the serial port, and set the gauge metric
 def process_request():
